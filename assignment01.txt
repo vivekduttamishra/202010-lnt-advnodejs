@@ -1,0 +1,41 @@
+Create a function to find and return all primes in a given min and  max range 
+
+Example find primes between 2 and 200 
+
+ 
+
+ 
+
+ 
+
+Psudo code of isPrime  
+
+ 
+
+ 
+
+ 
+
+bool isPrime(int x){ 
+
+ 
+
+If(x<2) 
+
+return false; 
+
+ 
+
+for(int i=2;i<x;i++) 
+
+If(x%i==0) 
+
+return false; 
+
+ 
+
+return true; 
+
+ 
+
+} 
