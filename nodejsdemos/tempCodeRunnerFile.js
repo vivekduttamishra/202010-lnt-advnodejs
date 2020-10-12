@@ -1,0 +1,1 @@
+PrimesSync(min,max);
