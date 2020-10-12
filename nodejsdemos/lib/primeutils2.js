@@ -1,56 +1,61 @@
 
 
-function isPrimeSync( number){ 
+function isPrimeSync(number) {
 
-    if(number<2) 
-        return false; 
-    
-    for(let i=2;i<number;i++) 
-        if(number%i==0) 
-            return false; 
-    
-    return true; 
-    
-} 
+    if (number < 2)
+        return false;
 
-function findPrimesSync(min,max){    
+    for (let i = 2; i < number; i++)
+        if (number % i == 0)
+            return false;
+
+    return true;
+
+}
+
+function findPrimesSync(min, max) {
     //what to do with invalid argument
-    if(max<=min)
+    if (max <= min)
         throw new Error(`invalid range [${min}-${max}]`);
-    let result=[];
-    for(let i=min;i<max;i++){
-      if(isPrimeSync(i))
-            result.push(i);        
+    let result = [];
+    for (let i = min; i < max; i++) {
+        if (isPrimeSync(i))
+            result.push(i);
     }
 
-    return result;    
-    
+    return result;
+
 }
 
-function isPrime(number, cb){
-     cb(null, isPrimeSync(number)); 
+function isPrime(number, cb) {
+    cb(null, isPrimeSync(number));
 }
 
-function findPrimes(min,max, cb){
+function findPrimes(min, max, cb) {
 
-    if(min>=max)
-        cb(new Error(`Invalid Range(${min}-${max})`));  //result is undefined
-    else{
-        let primes=[];
-        for(let i=min;i<max;i++)
-            isPrime(i,  (err,result) => {
-                if(result)
-                    primes.push(i);
-            });
+    setTimeout(() => {
+        if (min >= max)
+            cb(new Error(`Invalid Range(${min}-${max})`));  //result is undefined
+        else {
+            let primes = [];
+            for (let i = min; i < max; i++)
+                isPrime(i, (err, result) => {
+                    if (result)
+                        primes.push(i);
+                });
 
-        cb(null,primes); //first parameter null indicates success
-    }
+            cb(null, primes); //first parameter null indicates success
+        }
+
+    }, 2); //just to simulate that job may take long time.
+
+
 }
 
 
 
 
-module.exports={
+module.exports = {
     isPrimeSync,
     findPrimesSync,
     findPrimes,
