@@ -1,5 +1,5 @@
 
-let {findPrimes} =require('./lib/primeutils2');
+let {findPrimes} =require('./lib/primeutils3');
 
 
 //Presentation Layer
@@ -19,7 +19,7 @@ const testFindPrimes= function(min,max){
 
 
 
-testFindPrimes(2,500000); //this is a long time taking operation!
+testFindPrimes(2,50000); //this is a long time taking operation!
 testFindPrimes(100,2);    //this call has potential to finish very quickly
 testFindPrimes(2,10000);  //but must wait till previous operation has finished
 
