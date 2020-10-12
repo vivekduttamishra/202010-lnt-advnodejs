@@ -49,7 +49,6 @@ function findPrimes(min, max, cb) {
 
     }, 2); //just to simulate that job may take long time.
 
-
 }
 
 
