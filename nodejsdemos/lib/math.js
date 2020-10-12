@@ -21,7 +21,7 @@ let factorial=(number)=>{
 };
 
 
-let combination=(n,r)=>{
+let _combination=(n,r)=>{
 
     //factorial(n)/factorial(n-r)/factorial(r)
 
@@ -41,10 +41,22 @@ let combination=(n,r)=>{
 
     });
 
-    
-
 
 }
+
+async function combination(n,r){
+
+    let fn= await factorial(n);
+    let fn_r=await factorial(n-r);
+    let fr=await factorial(r);
+    let c= fn/fn_r/fr;  
+
+    return c;
+
+}
+
+
+
 
 module.exports={
     factorial,
