@@ -1,1 +1,3 @@
-PrimesSync(min,max);
+ // .catch(function(err){
+            //     reject(err);
+            // });

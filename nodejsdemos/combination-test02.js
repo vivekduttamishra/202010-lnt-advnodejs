@@ -20,7 +20,7 @@ async function testComibination(n,r){
 
 
 //can't await in global area
-testComibination(5,2)
+testComibination(7,2)  // 7! --> 700ms      2!--> 200ms   5! --> 500ms
     .then(()=>console.log('calcualtion over'));
 
 
