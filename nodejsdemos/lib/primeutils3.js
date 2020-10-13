@@ -84,8 +84,6 @@ function findPrimes(min, max, cb) {
 }
 
 
-
-
 function promisedPrimes(min, max) {
 
     //promise will return immediately
@@ -138,6 +136,17 @@ function promisedPrimes(min, max) {
 
 }
 
+function * primeRange(min,max){
+
+    for(let i=min;i<max;i++)
+        if(isPrimeSync(i)){
+            console.log('prime is ',i);            
+            yield i;
+        }
+
+}
+
+
 
 
 module.exports = {
@@ -145,7 +154,8 @@ module.exports = {
     findPrimesSync,
     findPrimes,
     isPrime,
-    promisedPrimes
+    promisedPrimes,
+    primeRange
 };
 
 
