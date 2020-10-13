@@ -8,4 +8,10 @@ async function sleep(ms=0){
 }
 
 
+Object.prototype.getType=function(){
+    return this.__proto__.constructor.name;
+}
+
+
+
 module.exports = {sleep};
