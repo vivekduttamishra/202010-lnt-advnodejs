@@ -140,10 +140,38 @@ function * primeRange(min,max){
 
     for(let i=min;i<max;i++)
         if(isPrimeSync(i)){
-            console.log('prime is ',i);            
+            //console.log('prime is ',i);            
             yield i;
         }
 
+}
+
+let EventEmitter = require('events');
+
+function fetchPrimes(min,max,id){
+
+    let event=new EventEmitter();
+    let index=0;
+    let gen=primeRange(min,max);
+    let iid=setInterval(()=>{
+
+        if(min>max){
+            event.emit('ERROR', {id,min,max,message:'invalid range'})
+            return clearInterval(iid);
+        }
+        x=gen.next();
+        if(!x.done){
+            index++;
+            event.emit('PRIME',{id,index,min,max,prime:x.value});
+        } else {
+            event.emit('FINISHED',{id,min,max, totalPrimes: index});
+            return clearInterval(iid); //clearInterval and return
+        }
+
+    },100);
+    
+
+    return event;
 }
 
 
@@ -155,7 +183,8 @@ module.exports = {
     findPrimes,
     isPrime,
     promisedPrimes,
-    primeRange
+    primeRange,
+    fetchPrimes
 };
 
 
