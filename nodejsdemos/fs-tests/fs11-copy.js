@@ -16,9 +16,10 @@ let firstTime=true;
 let unsavedData='';
 let readOver=false;
 
+let writerReady=true;
 
-readStream
-   
+
+readStream   
     .on('end',()=>{
         readStream.close();
         readOver=true; 
@@ -29,6 +30,9 @@ readStream
     .on('data',buffer=>{
         //we have read one chunk of data from the stream
         bytesRead+=buffer.length;
+
+        
+
         
         readCount++;
         if(firstTime){
@@ -46,6 +50,7 @@ readStream
     })
 
 
+
 writeStream
     .on('drain',data=>{
         
@@ -54,13 +59,14 @@ writeStream
        // readStream.pause(); //please don't read any more data. to make sure unsavedData is not modified while we are writing
         writeStream.write(unsavedData, err=>{
             if(!err){
-            unsavedData=''; //there is no unsaved data left 
-            process.stdout.write("██ " );
-            }
-            if(readOver)
+                unsavedData=''; //there is no unsaved data left 
+                process.stdout.write("██ " );
+                if(readOver)
                 writeStream.close();
             //else
             //    readStream.resume();  //ok readStream now you can resume
+            }
+            
         });
         
 
