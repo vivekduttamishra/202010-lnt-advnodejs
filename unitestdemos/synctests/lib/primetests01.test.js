@@ -2,7 +2,7 @@ let {isPrimeSync} =require('../../api/lib/prime');
 let assert = require('assert');
 
 
-describe('isPrimeSync tests using simple assert', function () {
+xdescribe('isPrimeSync tests using simple assert', function () {
 
     //one test case
     it('isPrimeSync should return true for 11',function(){

@@ -1,32 +1,31 @@
 let {findPrimesSync} =require('../../api/lib/prime');
 let assert = require('assert');
-let expect =require('chai').expect;
+const { expect } = require('chai');
 
 
-
-
-
-describe('findprimeSync tests using chai expect', function () {
+xdescribe('findprimeSync tests', function () {
 
     //one test case
     it('there should be 4 primes under 10',function(){
 
         let result=findPrimesSync(1,10);
 
-        expect(result).to.be.an('Array');
+        assert.strictEqual(result.length    ,4);
 
     });
 
     it('there should be 25 primes under 100',function(){
 
         let result=findPrimesSync(1,100);
-        expect(result.length).to.be.greaterThan(24).and.lessThan(26);
+        assert.strictEqual(result.length    ,25);
 
     });
 
     it('there should be 15 primes under 50',()=>{
 
-        expect(findPrimesSync(1,50)).to.be.an('array').with.length(15);
+        //expect(findPrimesSync(1,50).length).toBe(15);
+
+        expect(findPrimesSync(1,50).length).to.equal(15);
 
     });
 
