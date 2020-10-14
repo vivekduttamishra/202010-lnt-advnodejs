@@ -8,8 +8,6 @@ let Converter=function(convertFunction){
     Transform.call(this); 
     this.convertFunction=convertFunction; //this function will actually be used over the stream
 }
-
-
 //Fixed Step 2: inherits
 util.inherits(Converter, Transform);
 
