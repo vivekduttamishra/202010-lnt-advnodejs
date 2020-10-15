@@ -17,6 +17,7 @@ app.use(bodyParser.json());
 
 
 app.use('/api/authors', require('./routes/authors-route'));
+app.use('/api/books', require('./routes/books-route'));
 
 
 app.listen(port,(err)=>{

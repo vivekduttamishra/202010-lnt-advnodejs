@@ -3,23 +3,64 @@ let sequelize=require('./sequelize'); //get the our sequelize context
 
 let Sequelize=sequelize.Sequelize;  //get Squelize api from 
 
+class Book extends Sequelize.Model{
 
-//create a definition of Book and attach this definition to my context
-//the attachment is not required by Sequelize api, 
-//But will be helpful when I want to use the Author object at other places in my code
-
-sequelize.Book=sequelize.define('Book',{
-    title: Sequelize.STRING,   //varchar(255)
-    description:Sequelize.TEXT, //large string
-    cover: Sequelize.STRING,
-    tags:Sequelize.STRING,
-    price:Sequelize.INTEGER
-});
+};
 
 
 
-//otherwise you need to export Book object from this module
-//and clients will require to import this module along with sequelize module
+Book.init(
+    {
+    isbn:{
+        type:Sequelize.STRING,
+        allowNull:false,
+        primaryKey:true,
+        validate:{
+            isNumeric:true,
+            len:[10,10]            
+        }
+    },
 
+    title:{
+        type:Sequelize.STRING,
+        allowNull:false,
+        validate:{
+            len:[2,50]
+        }
+    },
+    description:{
+        type:Sequelize.TEXT,
+        allowNull:false,
+        validate:{
+            len:[10,2000]
+        }
+    },
+    cover:{
+        type:Sequelize.STRING,
+        validate:{
+            isUrl:true,
+            endsWith:(value)=>{
+                if(!value.toLowerCase().endsWith('.jpg'))
+                    throw new Error('cover must be a .jpg file')
+            }
+        }
+    },
+    price:{
+        type:Sequelize.INTEGER,
+        allowNull:false,  //database constraint. becomes part of column schema in database
+        validate:{  //client side javascript validation performed before insert/update to database
+            min:0,
+            max:5000
+        }
+    }
 
+},
+//required to connect the class with context
+{   
+    sequelize, // We need to pass the connection instance
+    modelName: 'Book' // We need to choose the model name
+  }
 
+);
+
+sequelize.Book=Book;

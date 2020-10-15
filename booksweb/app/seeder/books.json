@@ -1,0 +1,58 @@
+[
+    {
+        "title":"The Accursed God",
+        "authorId":1,
+        "cover":"http://booksweb.org/images/books/theaccursedgod.jpg",
+        "price":199,
+        "description":"An epic fiction based on Mahabharata",
+        "isbn":"1234567890"
+    },
+    {
+        "title":"The Count of Monte Cristo",
+        "authorId":2,
+        "cover":"http://booksweb.org/images/books/cristo.jpg",
+        "price":399,
+        "description":"One of the greatest classic in English and French",
+        "isbn":"1234567891"
+    },
+    {
+        "title":"Kane and Abel",
+        "authorId":3,
+        "cover":"http://booksweb.org/images/books/kaneabel.jpg",
+        "price":299,
+        "description":"One of the best seller by archer",
+        "isbn":"1234567892"
+    },
+    {
+        "title":"Sons of Fortune",
+        "authorId":3,
+        "cover":"http://booksweb.org/images/books/sof.jpg",
+        "price":299,
+        "description":"Another best seller by Archer",
+        "isbn":"1234567893"
+    },
+    {
+        "title":"Sins of Father",
+        "authorId":1,
+        "cover":"http://booksweb.org/images/books/sins.jpg",
+        "price":199,
+        "description":"Part 1 of clifton chronicle",
+        "isbn":"1234567894"
+    },
+    {
+        "title":"The Summons",
+        "authorId":5,
+        "cover":"http://booksweb.org/images/books/summons.jpg",
+        "price":199,
+        "description":"An judge summons his sons and dies before they arrive",
+        "isbn":"1234567895"
+    },
+    {
+        "title":"The Brethren",
+        "authorId":5,
+        "cover":"http://booksweb.org/images/books/brethren.jpg",
+        "price":199,
+        "description":"Three convicted judge and a presidential election",
+        "isbn":"1234567896"
+    }
+]
