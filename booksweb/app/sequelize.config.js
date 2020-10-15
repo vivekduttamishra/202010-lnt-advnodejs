@@ -1,11 +1,11 @@
 
 module.exports={
     
-    "db": process.env.DB_SERVER,
+    "db": process.env.DB_NAME,
     "user":process.env.DB_USER,
     "password": process.env.DB_PASSWORD,
     "options":{
-        "host":"localhost",
+        "host":process.env.DB_SERVER,
         "dialect":"mysql"
     },
     "sync":{
