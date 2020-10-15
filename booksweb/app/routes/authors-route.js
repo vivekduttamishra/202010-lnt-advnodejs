@@ -11,11 +11,12 @@ let authorService=new AuthorService();
 router.get('/', async(req,res)=>{
     try{
         //TODO: Get all  Authors
-        
-        res.send('list all Authors');
+        let authors=await authorService.getAllAuthors();        
+        res.send(authors);
+
     }catch(err){
         console.log('err in path: /',err);
-        res.status(400).send(err);
+        res.status(500).send(err);
     }
 });
 
@@ -33,12 +34,11 @@ router.post('/', async(req,res)=>{
 router.get('/:id', async(req,res)=>{
     try{
         let id=req.params.id;
-        //TODO: get Author by id
-        
-        res.send(`get Author by id: `+id);
-    }catch(err){
-        console.log('err in path: /',err);
-        res.status(400).send(err);
+        let author=await authorService.getById(id);    
+        await res.send(author);
+    }catch(err){        
+        console.log('error in requet',err);
+        res.status(404).send(err);
     }
 });
 
@@ -57,12 +57,11 @@ router.put('/:id', async(req,res)=>{
 
 router.delete('/:id', async(req,res)=>{
     try{
-        let id=req.params.id;
-        //TODO: delete Author by id
-        
-        res.send(`delete Author by id: `+id);
+        let id=req.params.id;        
+        await authorService.removeAuthor(id);
+        res.status(204).send();
     }catch(err){
-        console.log('err in path: /',err);
+        console.log('err in path: delete',err);
         res.status(404).send(err);
     }
 });

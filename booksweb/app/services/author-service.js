@@ -23,9 +23,17 @@ class AuthorService{
     }
 
     async getById(id){
-        return await sequelize.Author.findByPk(id);
+        let author= await sequelize.Author.findByPk(id);
+        if (!author)
+            throw  {"message":"No Such Author", id};  
+        else
+            return author;      
     }
 
+    async removeAuthor(id){
+        await this.getById(id);
+        await sequelize.Author.destroy({where:{id}});
+    }
 
 
 }

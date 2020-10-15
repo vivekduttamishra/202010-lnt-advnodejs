@@ -10,6 +10,6 @@ module.exports={
         logging: console.log
     }, 
     "sync":{
-        "force":true
+        "force":false
     }
 }
