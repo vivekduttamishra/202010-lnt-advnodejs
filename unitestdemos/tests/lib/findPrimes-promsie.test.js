@@ -11,7 +11,7 @@ let should=chai.should();
 
 
 
-describe('promisedPrimesTest',function(){
+xdescribe('promisedPrimesTest',function(){
 
     describe('testing as promise',()=>{
 
