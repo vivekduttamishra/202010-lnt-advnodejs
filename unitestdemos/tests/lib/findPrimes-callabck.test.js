@@ -6,7 +6,7 @@ let should=require('chai').should();
 let assert=require('chai').assert;
 
 
-describe('findPrimes async function tests',function(){
+xdescribe('findPrimes async function tests',function(){
 
     
     it('should have null error for valid range ',function(){
