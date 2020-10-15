@@ -6,8 +6,9 @@ module.exports={
     "password": process.env.DB_PASSWORD,
     "options":{
         "host":process.env.DB_SERVER,
-        "dialect":"mysql"
-    },
+        "dialect":"mysql",
+        logging: console.log
+    }, 
     "sync":{
         "force":true
     }

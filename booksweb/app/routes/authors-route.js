@@ -1,6 +1,10 @@
 let express=require('express');
 let router=express.Router();
 
+let AuthorService=require('../services/author-service');
+
+let authorService=new AuthorService();
+
 //Route for : Author
 
 
@@ -17,9 +21,9 @@ router.get('/', async(req,res)=>{
 
 router.post('/', async(req,res)=>{
     try{
-        let model=req.body
-        //TODO: add new Author
-        res.send('adding new Author');
+        let author=req.body; //get the author from the post request
+        let result=await authorService.addAuthor(author);
+        res.status(201).send(result);
     }catch(err){
         console.log('err in path: /',err);
         res.status(400).send(err);

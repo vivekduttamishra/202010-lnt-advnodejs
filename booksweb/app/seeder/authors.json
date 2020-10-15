@@ -1,0 +1,37 @@
+[
+    {
+        "name":"Vivek Dutta Mishra",
+        "biography":"Author of The Accursed God",
+        "photographs":"vivek.jpg",
+        "tags":"author, trainer"
+    },
+
+    {
+        "name":"Alexandre Dumas",
+        "biography":"One of the altime greatest author of English and French",
+        "photographs":"dumas.jpg",
+        "tags":"classic,english,french"
+    },
+
+    {
+        "name":"Jeffrey Archer",
+        "biography":"Contemporary best seller of English Fictions",
+        "photographs":"archer.jpg",
+        "tags":"fiction,best-seller"
+    },
+
+    {
+        "name":"Ramdhari Singh Dinkar",
+        "biography":"National Poet of India",
+        "photographs":"dinkar.jpg",
+        "tags":"hind,poet,indian"
+    },
+
+    {
+        "name":"John Grisham",
+        "biography":"Famous author of legal fictions",
+        "photographs":"grisham.jpg",
+        "tags":"legal fiction, best-seller"
+    }
+
+]
