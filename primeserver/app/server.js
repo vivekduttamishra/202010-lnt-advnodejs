@@ -1,5 +1,6 @@
 let express=require('express');
 
+
 let app=express()
 let bodyParser=require('body-parser');
 
@@ -21,6 +22,29 @@ app.get('/demo02',async(req,res)=>{
     //express server marks the request object as dead by removing all references
     req.garbage=new array(10000000);  
     res.send('added gargbage to request object');
+});
+
+let heapdump=require('heapdump');
+
+app.get('/heapdump',async(req,res)=>{
+
+    heapdump.writeSnapshot((err,filename)=>{
+        if(!err){
+            console.log('heap dump written to ',filename);
+            res.send('head dump written to '+filename);
+        }
+        else
+            res.send('error saving heapdump');
+    });
+
+});
+
+
+app.get('/memory',async(req,res)=>{
+
+    let memory=process.memoryUsage();
+    await res.json(memory);
+
 });
 
 let primeService =require('./service/prime-service');
