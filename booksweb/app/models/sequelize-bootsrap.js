@@ -2,6 +2,12 @@
 let sequelize= require('./sequelize');
 let config=require('../sequelize.config');
 
+
+
+
+//manually require each model file so that they
+//can be intialized
+
 require('./author');  //automatically injects Author to sequelize
 
 require('./book'); //automatically injects Book to sequelize

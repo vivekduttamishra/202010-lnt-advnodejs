@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": "@DM1n.",
+    "database": "migration_dev",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password":  "@DM1n.",
+    "database": "migration_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password":  "@DM1n.",
+    "database": "migration_prod",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
